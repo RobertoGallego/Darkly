@@ -39,6 +39,6 @@ if we change this value to true (b326b5062b2f0e69046810717534cb09) we get the fl
 ```
 
 ## Info
-[md5](https://md5.gromweb.com/?string=42)
-[owasp cookie](https://owasp.org/www-community/controls/SecureCookieAttribute#)
-[owasp top 10 guide](https://thehackerish.com/owasp-top-10-the-ultimate-guide/)
+[md5](https://md5.gromweb.com/?string=42)<br/>
+[owasp cookie](https://owasp.org/www-community/controls/SecureCookieAttribute#)<br/>
+[owasp top 10 guide](https://thehackerish.com/owasp-top-10-the-ultimate-guide/)<br/>
